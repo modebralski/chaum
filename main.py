@@ -6,7 +6,7 @@ def main():
     size_x = 10
     size_y = 10
     img = create_img_matrix(size_x, size_y)
-    random_sheet = np.random.randint(2, high=4, size=[10, 10])
+    random_sheet = create_top_random_layer(size_x, size_y)
     other_sheet = np.ones((10, 10), dtype=int)
     print(f"Image:\n {img}")
     print(f"Random Sheet: \n {random_sheet}")
@@ -41,6 +41,10 @@ def main():
 
 def create_img_matrix(size_x: int, size_y: int):
     return np.random.randint(2, size=[size_x, size_y])
+
+
+def create_top_random_layer(size_x: int, size_y: int):
+    return np.random.randint(2, high=4, size=[size_x, size_y])
 
 
 if __name__ == "__main__":
