@@ -17,6 +17,8 @@ def main():
     top_layer.save("top_layer.png")
     bottom_layer = create_img_form_array(bottom_layer_array)
     bottom_layer.save('bottom_layer.png')
+    top_and_bottom = join_top_and_bottom_layers(top_layer, bottom_layer)
+    top_and_bottom.save('top_and_bottom.png')
 
 
 def create_img_form_array(img_array):
@@ -36,6 +38,13 @@ def create_img_form_array(img_array):
                 img.paste(two_image, (column * 2, row * 2))
             else:
                 img.paste(three_image, (column * 2, row * 2))
+    return img
+
+
+def join_top_and_bottom_layers(top_layer, bottom_layer):
+    img = Image.new('RGBA', top_layer.size, (255, 255, 255, 255))
+    img.paste(top_layer, (0, 0))
+    img.paste(bottom_layer, (0, 0))
     return img
 
 
