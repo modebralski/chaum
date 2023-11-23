@@ -30,8 +30,8 @@ def create_semi_black_2_chunk():
 
 def create_semi_black_3_chunk():
     semi_black_3_chunk = Image.new('RGBA', (2, 2), (0, 0, 0, 0))
-    semi_black_3_chunk.putpixel((1, 0), (0, 0, 0, 255))
-    semi_black_3_chunk.putpixel((0, 1), (0, 0, 0, 255))
+    semi_black_3_chunk.putpixel((0, 0), (0, 0, 0, 255))
+    semi_black_3_chunk.putpixel((1, 1), (0, 0, 0, 255))
     semi_black_3_chunk.save('3.png')
     semi_black_3_chunk.show()
 
