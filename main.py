@@ -3,7 +3,9 @@ from PIL import Image
 
 
 def main():
-    img = np.random.randint(2, size=[10, 10])
+    size_x = 10
+    size_y = 10
+    img = create_img_matrix(size_x, size_y)
     random_sheet = np.random.randint(2, high=4, size=[10, 10])
     other_sheet = np.ones((10, 10), dtype=int)
     print(f"Image:\n {img}")
@@ -35,6 +37,10 @@ def main():
             color = images[value].getpixel((0, 0))
             random_image.putpixel((col, row), color)
     random_image.save("random.bmp")
+
+
+def create_img_matrix(size_x: int, size_y: int):
+    return np.random.randint(2, size=[size_x, size_y])
 
 
 if __name__ == "__main__":
