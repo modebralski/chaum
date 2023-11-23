@@ -11,6 +11,15 @@ def main():
     print(f"Image:\n {img_array}")
     print(f"Random Sheet: \n {top_layer_array}")
     print(f"Other Sheet: \n {bottom_layer_array}")
+    img = create_img_form_array(img_array)
+    img.save('img.png')
+    top_layer = create_img_form_array(top_layer_array)
+    top_layer.save("top_layer.png")
+    bottom_layer = create_img_form_array(bottom_layer_array)
+    bottom_layer.save('bottom_layer.png')
+
+
+def create_img_form_array(img_array):
     zero_image = Image.open('0.png')
     one_image = Image.open('1.png')
     two_image = Image.open('2.png')
@@ -21,10 +30,13 @@ def main():
         for column in range(img_array.shape[1]):
             if img_array[row, column] == 0:
                 img.paste(zero_image, (column * 2, row * 2))
-            else:
+            elif img_array[row, column] == 1:
                 img.paste(one_image, (column * 2, row * 2))
-    img.save("img.png")
-    img.show()
+            elif img_array[row, column] == 2:
+                img.paste(two_image, (column * 2, row * 2))
+            else:
+                img.paste(three_image, (column * 2, row * 2))
+    return img
 
 
 def create_img_matrix(size_x: int, size_y: int):
