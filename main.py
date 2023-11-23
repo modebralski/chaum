@@ -42,13 +42,13 @@ def create_bottom_layer(img_matrix, top_random_layer):
     for i, line in enumerate(img_matrix):
         for j, pixel in enumerate(line):
             if pixel == 1 and top_random_layer[i][j] == 2:
-                bottom_layer[i][j] = 3
+                bottom_layer[i][j] = 2
             elif pixel == 1 and top_random_layer[i][j] == 3:
-                bottom_layer[i][j] = 2
-            elif pixel == 0 and top_random_layer[i][j] == 3:
                 bottom_layer[i][j] = 3
-            else:
+            elif pixel == 0 and top_random_layer[i][j] == 3:
                 bottom_layer[i][j] = 2
+            else:
+                bottom_layer[i][j] = 3
     return bottom_layer
 
 
