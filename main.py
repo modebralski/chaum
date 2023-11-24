@@ -3,14 +3,14 @@ from PIL import Image
 
 
 def main():
-    size_x = 100
-    size_y = 100
+    size_x = 300
+    size_y = 300
     img_array = create_img_matrix(size_x, size_y)
     top_layer_array = create_top_random_layer(size_x, size_y)
     bottom_layer_array = create_bottom_layer(img_array, top_layer_array)
     print(f"Image:\n {img_array}")
-    print(f"Random Sheet: \n {top_layer_array}")
-    print(f"Other Sheet: \n {bottom_layer_array}")
+    print(f"Top Layer: \n {top_layer_array}")
+    print(f"Bottom Layer: \n {bottom_layer_array}")
     img = create_img_form_array(img_array)
     img.save("img.png")
     top_layer = create_img_form_array(top_layer_array)
