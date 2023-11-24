@@ -3,8 +3,8 @@ from PIL import Image
 
 
 def main():
-    size_x = 10
-    size_y = 10
+    size_x = 100
+    size_y = 100
     img_array = create_img_matrix(size_x, size_y)
     top_layer_array = create_top_random_layer(size_x, size_y)
     bottom_layer_array = create_bottom_layer(img_array, top_layer_array)
@@ -42,9 +42,9 @@ def create_img_form_array(img_array):
 
 
 def join_top_and_bottom_layers(top_layer, bottom_layer):
-    img = Image.new('RGBA', top_layer.size, (255, 255, 255, 255))
-    img.paste(top_layer, (0, 0))
-    img.paste(bottom_layer, (0, 0))
+    img = Image.new('RGBA', top_layer.size, (0, 0, 0, 255))
+    img.paste(top_layer, bottom_layer)
+    img.show()
     return img
 
 
