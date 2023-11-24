@@ -12,22 +12,22 @@ def main():
     print(f"Random Sheet: \n {top_layer_array}")
     print(f"Other Sheet: \n {bottom_layer_array}")
     img = create_img_form_array(img_array)
-    img.save('img.png')
+    img.save("img.png")
     top_layer = create_img_form_array(top_layer_array)
     top_layer.save("top_layer.png")
     bottom_layer = create_img_form_array(bottom_layer_array)
-    bottom_layer.save('bottom_layer.png')
+    bottom_layer.save("bottom_layer.png")
     top_and_bottom = join_top_and_bottom_layers(top_layer, bottom_layer)
-    top_and_bottom.save('top_and_bottom.png')
+    top_and_bottom.save("top_and_bottom.png")
 
 
 def create_img_form_array(img_array):
-    zero_image = Image.open('0.png')
-    one_image = Image.open('1.png')
-    two_image = Image.open('2.png')
-    three_image = Image.open('3.png')
+    zero_image = Image.open("0.png")
+    one_image = Image.open("1.png")
+    two_image = Image.open("2.png")
+    three_image = Image.open("3.png")
     img_size = img_array.shape[0] * 2, img_array.shape[1] * 2
-    img = Image.new('RGBA', img_size, (0, 0, 0, 0))
+    img = Image.new("RGBA", img_size, (0, 0, 0, 0))
     for row in range(img_array.shape[0]):
         for column in range(img_array.shape[1]):
             if img_array[row, column] == 0:
@@ -42,7 +42,7 @@ def create_img_form_array(img_array):
 
 
 def join_top_and_bottom_layers(top_layer, bottom_layer):
-    img = Image.new('RGBA', top_layer.size, (0, 0, 0, 255))
+    img = Image.new("RGBA", top_layer.size, (0, 0, 0, 255))
     img.paste(top_layer, bottom_layer)
     img.show()
     return img
