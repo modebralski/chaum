@@ -14,4 +14,4 @@ def get_array_from_bitmap(name):
 
 
 if __name__ == "__main__":
-    get_array_from_bitmap()
+    print(get_array_from_bitmap("test.bmp"))
