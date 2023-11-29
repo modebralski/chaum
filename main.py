@@ -6,27 +6,28 @@ from create_array_from_bitmap import get_array_from_bitmap
 def main():
     img_array = get_array_from_bitmap("test.bmp")
     size_x, size_y = img_array.shape
+    print(size_x, size_y)
     top_layer_array = create_top_random_layer(size_x, size_y)
     bottom_layer_array = create_bottom_layer(img_array, top_layer_array)
     print(f"Image:\n {img_array}")
     print(f"Top Layer: \n {top_layer_array}")
     print(f"Bottom Layer: \n {bottom_layer_array}")
-    img = create_img_form_array(img_array)
+    img = create_img_from_array(img_array)
     img.save("img.png")
-    top_layer = create_img_form_array(top_layer_array)
+    top_layer = create_img_from_array(top_layer_array)
     top_layer.save("top_layer.png")
-    bottom_layer = create_img_form_array(bottom_layer_array)
+    bottom_layer = create_img_from_array(bottom_layer_array)
     bottom_layer.save("bottom_layer.png")
     top_and_bottom = join_top_and_bottom_layers(top_layer, bottom_layer)
     top_and_bottom.save("top_and_bottom.png")
 
 
-def create_img_form_array(img_array):
+def create_img_from_array(img_array):
     zero_image = Image.open("0.png")
     one_image = Image.open("1.png")
     two_image = Image.open("2.png")
     three_image = Image.open("3.png")
-    img_size = img_array.shape[0] * 2, img_array.shape[1] * 2
+    img_size = img_array.shape[1] * 2, img_array.shape[0] * 2
     img = Image.new("RGBA", img_size, (0, 0, 0, 0))
     for row in range(img_array.shape[0]):
         for column in range(img_array.shape[1]):
