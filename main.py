@@ -6,7 +6,6 @@ from create_array_from_bitmap import get_array_from_bitmap
 def main():
     img_array = get_array_from_bitmap("test.bmp")
     size_x, size_y = img_array.shape
-    print(size_x, size_y)
     top_layer_array = create_top_random_layer(size_x, size_y)
     bottom_layer_array = create_bottom_layer(img_array, top_layer_array)
     print(f"Image:\n {img_array}")
@@ -32,9 +31,9 @@ def create_img_from_array(img_array):
     for row in range(img_array.shape[0]):
         for column in range(img_array.shape[1]):
             if img_array[row, column] == 0:
-                img.paste(zero_image, (column * 2, row * 2))
-            elif img_array[row, column] == 1:
                 img.paste(one_image, (column * 2, row * 2))
+            elif img_array[row, column] == 1:
+                img.paste(zero_image, (column * 2, row * 2))
             elif img_array[row, column] == 2:
                 img.paste(two_image, (column * 2, row * 2))
             else:
