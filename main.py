@@ -6,8 +6,8 @@ from create_array_from_bitmap import get_array_from_bitmap
 def main():
     img_array = get_array_from_bitmap("test.bmp")
     size_x, size_y = img_array.shape
-    top_layer_array = create_top_random_layer(size_x, size_y)
-    bottom_layer_array = create_bottom_layer(img_array, top_layer_array)
+    top_layer_array = create_top_random_layer_matrix(size_x, size_y)
+    bottom_layer_array = create_bottom_layer_matrix(img_array, top_layer_array)
     print(f"Image:\n {img_array}")
     print(f"Top Layer: \n {top_layer_array}")
     print(f"Bottom Layer: \n {bottom_layer_array}")
@@ -52,11 +52,11 @@ def create_img_matrix(size_x: int, size_y: int):
     return np.random.randint(2, size=[size_x, size_y])
 
 
-def create_top_random_layer(size_x: int, size_y: int):
+def create_top_random_layer_matrix(size_x: int, size_y: int):
     return np.random.randint(2, high=4, size=[size_x, size_y])
 
 
-def create_bottom_layer(img_matrix, top_random_layer):
+def create_bottom_layer_matrix(img_matrix, top_random_layer):
     bottom_layer = np.ones((len(img_matrix), len(img_matrix[0])), dtype=int)
     for i, line in enumerate(img_matrix):
         for j, pixel in enumerate(line):
