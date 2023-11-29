@@ -2,12 +2,16 @@ import numpy as np
 from PIL import Image
 
 
-def main():
-    bmp_image = Image.open("test.bmp")
+def get_array_from_bitmap(name):
+    bmp_image = Image.open(name)
     image_array = np.array(bmp_image)
     binary_array = (image_array != 0).astype(int)
-    print(binary_array)
+    new_array = np.ones((len(binary_array), len(binary_array[0])), dtype=int)
+    for i in range(len(binary_array)):
+        for j in range(len(binary_array[i])):
+            new_array[i][j] = binary_array[i][j][0]
+    return new_array
 
 
 if __name__ == "__main__":
-    main()
+    get_array_from_bitmap()
