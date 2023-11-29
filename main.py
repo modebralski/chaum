@@ -1,11 +1,11 @@
 import numpy as np
 from PIL import Image
+from create_array_from_bitmap import get_array_from_bitmap
 
 
 def main():
-    size_x = 300
-    size_y = 300
-    img_array = create_img_matrix(size_x, size_y)
+    img_array = get_array_from_bitmap("test.bmp")
+    size_x, size_y = img_array.shape
     top_layer_array = create_top_random_layer(size_x, size_y)
     bottom_layer_array = create_bottom_layer(img_array, top_layer_array)
     print(f"Image:\n {img_array}")
